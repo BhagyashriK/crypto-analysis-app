@@ -25,5 +25,8 @@ To Build Production Code
 **Assumptions/NOTES:**
 
 - This application is single page react application created using Create React App
-- Intermediate node server is written because client side HTTP requests are prohibited through CORS on coin market API. (https://coinmarketcap.com/api/documentation/v1/#section/Quick-Start-Guide). Please find server repository at:
-  https://github.com/BhagyashriK/cryptoserver.
+- CointMarketCap APIs are changed a bit. As per API documentation, direct HTTP requests to CoinMarketCap API server from browser are prohibited hence I have written a node server to get data from server.  
+  (More info: https://coinmarketcap.com/api/documentation/v1/#section/Quick-Start-Guide).
+- /ticker API is no longer present in documentation. I have used /listings/latest (https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyListingsLatest) which is returning needed information.
+- Pagination max limit is 5000 for API, so ‘All’ value from global dropdown is using 5000 as max value.
+- I have used HighCharts for scatter plot graph.
